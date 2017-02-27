@@ -60,9 +60,18 @@ public class TrainSystemTest {
 
 	@Test
 	public void test4() {
-		controller.followSpeed();
-		controller.followSpeed();
-		controller.followSpeed();
+		try {
+			controller.followSpeed();
+
+			Thread.sleep(100);
+			controller.followSpeed();
+			Thread.sleep(100);
+			controller.followSpeed();
+			Thread.sleep(100);
+
+		}
+		catch (Exception e) { }
+
 
 		Assert.assertEquals(3, trainSystem.getTachograph().values().size());
 	}
