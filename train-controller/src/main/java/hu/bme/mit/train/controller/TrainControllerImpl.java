@@ -17,8 +17,9 @@ public class TrainControllerImpl implements TrainController {
 
 	@Override
     public void setDirection(Direction direction) {
-        if (direction != null) //checking the direction
-        this.direction = direction;
+        if (direction != null) {
+            this.direction = direction;
+        }
     }
 
 	@Override
