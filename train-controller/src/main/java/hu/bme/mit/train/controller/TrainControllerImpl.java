@@ -1,7 +1,10 @@
 package hu.bme.mit.train.controller;
 
+import hu.bme.mit.train.interfaces.Database;
 import hu.bme.mit.train.interfaces.Direction;
 import hu.bme.mit.train.interfaces.TrainController;
+
+import java.time.LocalDateTime;
 
 public class TrainControllerImpl implements TrainController {
 
@@ -9,6 +12,12 @@ public class TrainControllerImpl implements TrainController {
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
     private Direction direction = null;
+    private Database database = null;
+
+    public TrainControllerImpl(Database database){
+        this.database = database;
+    }
+
 
 	@Override
 	public Direction getDirection(){
@@ -29,7 +38,8 @@ public class TrainControllerImpl implements TrainController {
 		} else {
 			referenceSpeed += step;
 		}
-
+        LocalDateTime localDateTime = LocalDateTime.now();
+        database.save(localDateTime, referenceSpeed, step);
 		enforceSpeedLimit();
 	}
 
