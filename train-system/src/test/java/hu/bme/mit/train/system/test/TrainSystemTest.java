@@ -11,17 +11,17 @@ import hu.bme.mit.train.interfaces.TrainUser;
 import hu.bme.mit.train.system.TrainSystem;
 
 public class TrainSystemTest {
-
+	TrainSystem trainSystem;
 	TrainController controller;
 	TrainSensor sensor;
 	TrainUser user;
 	
 	@Before
 	public void before() {
-		TrainSystem system = new TrainSystem();
-		controller = system.getController();
-		sensor = system.getSensor();
-		user = system.getUser();
+		trainSystem = new TrainSystem();
+		controller = trainSystem.getController();
+		sensor = trainSystem.getSensor();
+		user = trainSystem.getUser();
 
 		sensor.overrideSpeedLimit(50);
 	}
@@ -56,6 +56,15 @@ public class TrainSystemTest {
 		controller.setDirection(Direction.LEFT);
 		controller.setDirection(null);
 		Assert.assertEquals(Direction.LEFT, controller.getDirection());
+	}
+
+	@Test
+	public void test4() {
+		controller.followSpeed();
+		controller.followSpeed();
+		controller.followSpeed();
+
+		Assert.assertEquals(3, trainSystem.getTachograph().size());
 	}
 
 	

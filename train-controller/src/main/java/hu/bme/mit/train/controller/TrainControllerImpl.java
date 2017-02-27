@@ -40,7 +40,7 @@ public class TrainControllerImpl implements TrainController {
 		}
         LocalDateTime localDateTime = LocalDateTime.now();
         database.save(localDateTime, referenceSpeed, step);
-		enforceSpeedLimit();
+        enforceSpeedLimit();
 	}
 
 	@Override

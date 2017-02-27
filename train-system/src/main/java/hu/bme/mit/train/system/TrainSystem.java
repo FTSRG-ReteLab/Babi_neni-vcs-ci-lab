@@ -24,6 +24,10 @@ public class TrainSystem implements Database {
 		tachograph.put(time, joyStickPosition, speed);
 	}
 
+	public Table<LocalDateTime, Integer, Integer> getTachograph() {
+		return tachograph;
+	}
+
 	public TrainController getController() {
 		return controller;
 	}
