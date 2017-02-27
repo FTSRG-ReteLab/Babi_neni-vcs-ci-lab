@@ -1,5 +1,6 @@
 package hu.bme.mit.train.system.test;
 
+import hu.bme.mit.train.interfaces.Direction;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,8 +47,15 @@ public class TrainSystemTest {
 		user.overrideJoystickPosition(4);
 		controller.followSpeed();
 		user.overrideJoystickPosition(-5);
-		controller.followSpeed();
-		Assert.assertEquals(0, controller.getReferenceSpeed());
+        controller.followSpeed();
+        Assert.assertEquals(-1, controller.getReferenceSpeed());
+	}
+
+	@Test
+	public void test3() {
+		controller.setDirection(Direction.LEFT);
+		controller.setDirection(null);
+		Assert.assertEquals(Direction.LEFT, controller.getDirection());
 	}
 
 	
