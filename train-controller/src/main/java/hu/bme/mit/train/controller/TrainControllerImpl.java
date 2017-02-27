@@ -11,7 +11,7 @@ public class TrainControllerImpl implements TrainController {
     private Direction direction = null;
 
 	@Override
-	public Direction getDirecton(){
+	public Direction getDirection(){
 		return direction;
 	}
 

@@ -8,7 +8,7 @@ public interface TrainController {
 
 	void setDirection(Direction direction);
 
-	Direction getDirecton();
+	Direction getDirection();
 
 	void setSpeedLimit(int speedLimit);
 
