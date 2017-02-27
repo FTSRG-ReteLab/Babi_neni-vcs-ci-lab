@@ -64,7 +64,7 @@ public class TrainSystemTest {
 		controller.followSpeed();
 		controller.followSpeed();
 
-		Assert.assertEquals(3, trainSystem.getTachograph().size());
+		Assert.assertEquals(3, trainSystem.getTachograph().values().size());
 	}
 
 	
